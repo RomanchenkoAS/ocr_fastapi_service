@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 
 from exception import InvalidLanguage
 from routers.files import router as files_router
-from routers.service import router as service_router
+from routers.api import router as service_router
 
 app = FastAPI()
 app.include_router(files_router)

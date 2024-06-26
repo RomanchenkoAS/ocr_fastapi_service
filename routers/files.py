@@ -3,7 +3,7 @@ import shutil
 from PIL import Image
 from fastapi import APIRouter, UploadFile, File, Query
 from fastapi import status
-from pytesseract import pytesseract as ts
+from pytesseract import pytesseract as tess
 
 from scripts.utils import validate_language
 
@@ -28,6 +28,6 @@ async def upload_file_view(
 
     with open(path, "wb") as f:
         shutil.copyfileobj(upload_file.file, f)
-    text = ts.image_to_string(Image.open(path), lang='eng+rus')
+    text = tess.image_to_string(Image.open(path), lang='eng+rus')
 
     return {'text': text}

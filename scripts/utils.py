@@ -1,4 +1,4 @@
-from pytesseract import pytesseract as ts
+from pytesseract import pytesseract as tess
 
 from exception import InvalidLanguage
 
@@ -10,7 +10,7 @@ def validate_language(lang_input: str) -> None:
     else:
         languages = [lang_input]
 
-    existing_languages = ts.get_languages()
+    existing_languages = tess.get_languages()
 
     if any(language not in existing_languages for language in languages):
         raise InvalidLanguage(f"Language is not valid")
