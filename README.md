@@ -75,6 +75,7 @@ curl -sSL https://install.python-poetry.org | python -</code></pre>
 <p>With Poetry and Tesseract installed, you are now ready to proceed with setting up your OCR application.</p>
 
 
+
 ### Add languages
 
 - You can download any additional languages you want installed at https://github.com/tesseract-ocr/tessdata
@@ -84,7 +85,11 @@ sudo cp -r /path/to/your/traindata/* /usr/share/tesseract-ocr/4.00/tessdata/
 ```
 - Verify installation with:
 ```python
-from pytesseract import pytesseract as ts
+from pytesseract import pytesseract as tess
 
-print(ts.get_languages())
+print(tess.get_languages())
 ```
+
+### Tesseract details
+
+You can find more detailed information about tesseract on it's [official Github page](https://github.com/madmaze/pytesseract).
