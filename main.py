@@ -1,13 +1,11 @@
+import os
+
 from fastapi import FastAPI
+from routers.files import router as files_router
+from routers.service import router as service_router
 
 app = FastAPI()
+app.include_router(files_router)
+app.include_router(service_router)
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+os.makedirs('files', exist_ok=True)
