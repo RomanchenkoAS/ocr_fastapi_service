@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from pytesseract import pytesseract as ts
+from pytesseract import pytesseract as tess
 
 router = APIRouter(
     prefix="/api",
@@ -11,5 +11,5 @@ router = APIRouter(
 async def get_languages():
     return {
         'success': True,
-        'languages': [lang for lang in ts.get_languages(config='') if lang != 'osd']
+        'languages': [lang for lang in tess.get_languages(config='') if lang != 'osd']
     }
