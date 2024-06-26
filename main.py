@@ -11,7 +11,7 @@ app = FastAPI()
 app.include_router(files_router)
 app.include_router(service_router)
 
-os.makedirs('files', exist_ok=True)
+os.makedirs("files", exist_ok=True)
 
 
 @app.get("/")
