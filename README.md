@@ -149,9 +149,9 @@ proxy.
 
 ### Usage
 
-- Upload an image through the /upload endpoint and specify the language for text extraction.
-- Retrieve available languages using the /api/languages endpoint.
-- Explore the API documentation at /docs.
+- Upload an image through the **/upload** endpoint and specify the language for text extraction.
+- Retrieve available languages using the **/api/languages** endpoint.
+- Explore the API documentation at **/docs**.
 
 With these steps, your OCR application should be up and running, ready to accept and process image files for text
 extraction.
