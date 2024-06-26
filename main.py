@@ -1,17 +1,22 @@
 import os
 
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse, RedirectResponse
 
 from exception import InvalidLanguage
-from routers.files import router as files_router
 from routers.api import router as service_router
+from routers.files import router as files_router
 
 app = FastAPI()
 app.include_router(files_router)
 app.include_router(service_router)
 
 os.makedirs('files', exist_ok=True)
+
+
+@app.get("/")
+def index():
+    return RedirectResponse(url="/docs")
 
 
 @app.exception_handler(InvalidLanguage)
