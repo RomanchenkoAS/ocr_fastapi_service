@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ocr_fastapi_service"
-version = "1.1.0"
+version = "1.2.0"
 description = "This is an OCR web-app built on FastAPI and Google's Tesseract."
 authors = ["RomanchenkoAS <RomanchenkoAS@yandex.ru>"]
 readme = "README.md"
