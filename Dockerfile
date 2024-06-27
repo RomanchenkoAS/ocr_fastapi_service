@@ -5,7 +5,10 @@ ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update \
     && apt-get install -y curl \
-    && pip install poetry==1.3.2
+    && pip install poetry==1.3.2 \
+    && apt-get install -y tesseract-ocr
+
+COPY traindata/* /usr/share/tesseract-ocr/5/tessdata/
 
 
 WORKDIR /app
