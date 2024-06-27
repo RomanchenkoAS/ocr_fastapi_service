@@ -1,6 +1,6 @@
 import os
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, RedirectResponse
 
 from exception import InvalidLanguage
@@ -20,7 +20,7 @@ def index():
 
 
 @app.exception_handler(InvalidLanguage)
-async def invalid_language_exception_handler(exc: InvalidLanguage):
+async def invalid_language_exception_handler(request: Request, exc: InvalidLanguage):
     return JSONResponse(
         status_code=418,
         content={"success": False, "message": exc.message},

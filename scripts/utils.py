@@ -13,4 +13,4 @@ def validate_language(lang_input: str) -> None:
     existing_languages = tess.get_languages()
 
     if any(language not in existing_languages for language in languages):
-        raise InvalidLanguage("Language is not valid")
+        raise InvalidLanguage(message="Language is not valid")
