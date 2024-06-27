@@ -1,3 +1,4 @@
+import os
 import shutil
 
 from PIL import Image
@@ -13,7 +14,7 @@ router = APIRouter(prefix="/upload", tags=["files"])
 MEGABYTE = 1024 * 1024
 
 
-@router.post("/", status_code=status.HTTP_201_CREATED)
+@router.post("/", status_code=status.HTTP_200_OK)
 async def upload_file_view(
     upload_file: UploadFile = File(...),
     lang: str = Query(
@@ -43,6 +44,13 @@ async def upload_file_view(
 
     with open(path, "wb") as f:
         shutil.copyfileobj(upload_file.file, f)
+
+    # Set correct privileges for saved image
+    os.chmod(path, 0o666)
+
     text = tess.image_to_string(Image.open(path), lang="eng+rus")
 
-    return {"text": text}
+    return {
+        "success": True,
+        "text": text
+    }
